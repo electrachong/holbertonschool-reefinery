@@ -1,0 +1,46 @@
+#include <stdio.h>
+void reverse_array(int *a, int n);
+void print_array(int *a, int n);
+
+int main(void)
+{
+	int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 98, 1024, 1337};
+
+	print_array(a, sizeof(a) / sizeof(int));
+	reverse_array(a, sizeof(a) / sizeof(int));
+	print_array(a, sizeof(a) / sizeof(int));
+	return (0);
+}
+
+
+/* reverse array a with n amount of items */
+void reverse_array(int *a, int n)
+{
+	int i;
+	int temp;
+	int b;
+
+	for (i = 0, b = n - 1; i < b; i++)
+	{
+		temp = a[i];
+		a[i] = a[b];
+		a[b] = temp;
+		b--;
+	}
+}
+
+/* print each element of an array of integers */
+void print_array(int *a, int n)
+{
+	int i;
+
+	for (i = 0; i < n - 1; i++)
+	{
+		printf("%d", a[i]);
+		printf("%c", ',');
+		printf("%c", ' ');
+	}
+
+	printf("%d", a[n - 1]); /* print the last element */
+	printf("%c", '\n');
+}
